@@ -1,0 +1,33 @@
+cabal-version:      3.0
+name:               aoc20
+version:            0.1.0.0
+
+license:            MIT
+-- license-file:       LICENSE
+author:             Miffi
+maintainer:         miffi@tutanota.com
+
+common deps
+  build-depends:       base >= 4.14.1.0
+                     , text
+                     , vector
+                     , transformers
+  default-extensions:  OverloadedStrings
+  default-language:    Haskell2010
+  other-modules:    Util
+  default-language: Haskell2010
+
+executable eleven
+  import: deps
+  main-is:          Eleven.hs
+  hs-source-dirs:   src
+
+executable twelve
+  import: deps 
+  main-is: Twelve.hs
+  hs-source-dirs:   src
+
+executable thirteen
+  import: deps 
+  main-is: Thirteen.hs
+  hs-source-dirs:   src
