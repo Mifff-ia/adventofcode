@@ -1,10 +1,14 @@
 use std::io;
 mod day1;
+mod day2;
 
 type AnswerFunc = for<'a> fn(&'a str) -> i64;
 type Day = (AnswerFunc, AnswerFunc);
 
-const DAYS: [Day; 1] = [(day1::answer1, day1::answer2)];
+const DAYS: [Day; 2] = [
+    (day1::answer1, day1::answer2),
+    (day2::answer1, day2::answer2),
+];
 const INPUT_PATH: &'static str = "../input/";
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
