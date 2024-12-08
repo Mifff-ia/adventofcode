@@ -1,10 +1,12 @@
 import 'dart:io' as io;
 import 'package:aoc24/day1.dart' as day1;
 import 'package:aoc24/day2.dart' as day2;
+import 'package:aoc24/day3.dart' as day3;
 
 var days = [
   (answer1: day1.answer1, answer2: day1.answer2),
   (answer1: day2.answer1, answer2: day2.answer2),
+  (answer1: day3.answer1, answer2: day3.answer2),
 ];
 
 void log(Object object) {
