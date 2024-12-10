@@ -29,53 +29,45 @@ int answer1(String input) {
   var acc = 0;
   var isAtLeft = true;
   var offset = 0;
-  for (int i = 0; i < all.length && left <= right; i++) {
-    while (all[i] != 0) {
-      if (isAtLeft) {
-        if (filled[left] == 0) {
-          break;
-        }
-        if (all[i] <= filled[left]) {
-          print("left $left offset $offset all ${all[i]}");
-          acc += left * sumRange(offset, all[i]);
-          print("$left ${sumRange(offset, all[i])}");
-          offset += all[i];
-          filled[left] -= all[i];
-          all[i] = 0;
-          isAtLeft = !isAtLeft;
-          if (all[i] == filled[left]) {
-            left++;
-          }
-        } else {
-          print("left $left offset $offset filled ${filled[left]}");
-          acc += left * sumRange(offset, filled[left]);
-          print("$left ${sumRange(offset, filled[left])}");
-          offset += filled[left];
-          all[i] -= filled[left];
-          filled[left] = 0;
-          left++;
-        }
+  for (int i = 0; i < all.length && left <= right;) {
+    if (isAtLeft) {
+      print("$i left $left offset $offset ${filled[left]}");
+      acc += left * sumRange(offset, filled[left]);
+      print("$left ${sumRange(offset, filled[left])}");
+      isAtLeft = !isAtLeft;
+      offset += filled[left];
+      all[i] = 0;
+      filled[left] = 0;
+      left++;
+      i++;
+    } else {
+      if (all[i] > filled[right]) {
+        print("$i right $right offset $offset filled ${filled[right]}");
+        acc += right * sumRange(offset, filled[right]);
+        print("$right ${sumRange(offset, filled[right])}");
+        offset += filled[right];
+        all[i] -= filled[right];
+        filled[right] = 0;
+        right--;
+      } else if (all[i] == filled[right]) {
+        print("$i right $right offset $offset both ${filled[right]}");
+        acc += right * sumRange(offset, filled[right]);
+        print("$right ${sumRange(offset, filled[right])}");
+        offset += filled[right];
+        isAtLeft = !isAtLeft;
+        filled[right] = 0;
+        all[i] = 0;
+        right--;
+        i++;
       } else {
-        if (all[i] <= filled[right]) {
-          print("right $right offset $offset all ${all[i]}");
-          acc += right * sumRange(offset, all[i]);
-          print("$right ${sumRange(offset, all[right])}");
-          offset += all[i];
-          filled[right] -= all[i];
-          all[i] = 0;
-          isAtLeft = !isAtLeft;
-          if (all[i] == filled[right]) {
-            right--;
-          }
-        } else {
-          print("right $right offset $offset filled ${filled[right]}");
-          acc += right * sumRange(offset, filled[right]);
-          print("$right ${sumRange(offset, filled[right])}");
-          offset += filled[right];
-          all[i] -= filled[right];
-          filled[right] = 0;
-          right--;
-        }
+        print("$i right $right offset $offset all ${all[i]}");
+        acc += right * sumRange(offset, all[i]);
+        print("$right ${sumRange(offset, all[right])}");
+        offset += all[i];
+        filled[right] -= all[i];
+        all[i] = 0;
+        isAtLeft = !isAtLeft;
+        i++;
       }
     }
   }
