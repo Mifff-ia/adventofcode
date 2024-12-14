@@ -11,6 +11,8 @@ import 'package:aoc24/day9.dart' as day9;
 import 'package:aoc24/day10.dart' as day10;
 import 'package:aoc24/day11.dart' as day11;
 import 'package:aoc24/day12.dart' as day12;
+import 'package:aoc24/day13.dart' as day13;
+import 'package:aoc24/day14.dart' as day14;
 
 var days = [
   (answer1: day1.answer1, answer2: day1.answer2),
@@ -25,6 +27,8 @@ var days = [
   (answer1: day10.answer1, answer2: day10.answer2),
   (answer1: day11.answer1, answer2: day11.answer2),
   (answer1: day12.answer1, answer2: day12.answer2),
+  (answer1: day13.answer1, answer2: day13.answer2),
+  (answer1: day14.answer1, answer2: day14.answer2),
 ];
 
 void log(Object object) {
